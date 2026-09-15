@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WireLens Phone</string>
+    <string name="monitor_notification_title">WireLens usage monitor</string>
+    <string name="monitor_notification_text">Watching per-app network use on this phone — nothing uploaded. Works beside your VPN.</string>
+    <string name="start_monitor">Start monitoring</string>
+    <string name="stop_monitor">Stop monitoring</string>
+    <string name="privacy_line">All on this phone. No cloud upload. Works beside a real VPN. Not antivirus. No HTTPS decrypt.</string>
+    <string name="help_box">Usage Access lets WireLens show which apps use the network (bytes in/out and rate). Destinations/IPs are not available in this mode — that would require taking Android’s single VPN slot, which would break commercial VPNs. We choose coexistence. Heuristics (sudden busy, high background) are hints only — not malware. HTTPS is never decrypted.</string>
+    <string name="cash_tip">Optional tip: Cash App $AnthonyDean16</string>
+    <string name="status_off">Monitor off</string>
+    <string name="status_on">Monitor on — %1$d apps (usage access, on-device)</string>
+    <string name="status_on_with_vpn">Monitor on with your VPN — %1$d apps · coexistence mode</string>
+    <string name="usage_access_needed">Turn on Usage Access for WireLens, then tap Start again.</string>
+    <string name="usage_access_open_failed">Open Settings → Apps → Special access → Usage access, enable WireLens.</string>
+    <string name="dest_usage_placeholder">usage monitor — destinations need VPN slot</string>
+    <string name="meta_usage">↓ %1$s · ↑ %2$s · %3$s · %4$s</string>
+    <string name="why_prefix">Why this might matter: %1$s</string>
+</resources>
