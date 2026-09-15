@@ -4,25 +4,29 @@
 
 ## Summary
 
-WireLens Phone monitors network destinations **on your device**. Connection metadata shown in the app stays **on the phone**. The publisher does **not** operate a cloud service that receives your traffic list.
+WireLens Phone monitors **per-app network usage** **on your device**. Usage metadata shown in the app stays **on the phone**. The publisher does **not** operate a cloud service that receives your traffic list.
 
 ## Data the app processes on-device
 
 - App names / package names (from Android UID mapping)
-- Destination IP addresses, ports, protocols
-- Hostnames when visible via local DNS observation
-- Packet/byte counts for the on-screen list
+- Bytes received / transmitted and approximate rates (via `NetworkStatsManager`)
+- Heuristic flags derived from those totals (sudden busy, high background use)
 
 ## Data we do not collect
 
 - No account required
-- No upload of connection logs to Ardean servers
+- No upload of usage logs to Ardean servers
 - No sale of personal data
 - No decryption of HTTPS / TLS contents
+- No destination IP / hostname capture in the default coexistence mode
 
-## VPN permission
+## Permissions (normal use)
 
-Android requires user consent for a **VpnService**. WireLens uses this to attribute traffic by app and destination **without root**. It is **not** marketed as a privacy VPN that tunnels you through a third-party server for anonymity.
+- **Usage Access** (`PACKAGE_USAGE_STATS`) — required to read per-app network stats. You enable this in system Settings.
+- **Foreground service / notifications** — so monitoring can continue with a clear ongoing notification.
+- **Internet** — declared for completeness; the monitor does not upload usage data.
+
+WireLens does **not** require Android’s **VPN permission** for normal Start Monitor. It deliberately avoids `VpnService` so a commercial VPN can keep the single VPN slot.
 
 ## Optional donations
 

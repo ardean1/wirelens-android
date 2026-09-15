@@ -8,14 +8,17 @@
 | compileSdk | 36 |
 | targetSdk | 36 |
 | minSdk | 26 |
-| versionCode | 1 |
-| versionName | 1.0.0 |
+| versionCode | 2 |
+| versionName | 1.0.1 |
 
 ## Sideload (debug)
 
 ```bash
 ./gradlew assembleDebug
-cp app/build/outputs/apk/debug/app-debug.apk /workspace/WireLens-debug.apk
+mkdir -p dist
+cp app/build/outputs/apk/debug/app-debug.apk dist/WireLens-debug.apk
+cp dist/WireLens-debug.apk /workspace/WireLens-debug.apk
+sha256sum dist/WireLens-debug.apk
 ```
 
 Phone: Chrome → https://github.com/ardean1/wirelens-android/releases → tap `WireLens-debug.apk` → allow source → Install.
@@ -31,12 +34,13 @@ Phone: Chrome → https://github.com/ardean1/wirelens-android/releases → tap `
 
 Debug APK ≠ Play artifact.
 
-## VPN permission
+## Permissions / coexistence
 
-Disclose in listing: local VPN used only to observe destinations on-device; not a remote VPN service.
+- Default monitor: **Usage Access** + foreground `dataSync` service — **no VPN slot**.
+- Disclose honestly: destination IPs require claiming Android’s VPN slot; this build chooses coexistence with commercial VPNs instead.
 
 ## Built debug APK (this environment)
 
-- Path: `/workspace/WireLens-debug.apk`
-- SHA-256: `7eb254e778b75c982445a94817514c1a073d465b8565ee4016994eeb65fd5dd8`
-- Size: ~5.6 MB
+- Paths: `/workspace/wirelens-android/dist/WireLens-debug.apk` and `/workspace/WireLens-debug.apk`
+- SHA-256: `229d032fe696c3c9386e583b30bfd706398298dd23d373ec1c8525e737d738a1`
+- Size: ~5677 KB
